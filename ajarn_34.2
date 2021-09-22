@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() 
+{
+    char a[50];
+    char trimmed_a[50];
+    int i;
+    int j=0;
+    int k;
+    int length;
+    int flag;
+
+    printf("Enter your string : ");
+	gets(a);
+    
+	for (i = 0; i < strlen(a); i++)
+    {
+        if (isalnum(a[i]))
+        {
+            trimmed_a[j] = a[i];
+            j++;
+        }
+    }
+    trimmed_a[j] = '\0';
+    
+    j = 0;
+    do{
+        trimmed_a[j] = tolower(trimmed_a[j]);
+        j++;
+    }while(trimmed_a[j]);
+
+   
+   length = strlen(trimmed_a);
+    for(k=0;k<length; k++)
+    {
+    	if(trimmed_a[k] != trimmed_a[length-k-1])
+    	flag = 1;
+	}
+	
+	if(flag)
+	{
+		printf("Not Palindrome");
+	}
+	else
+	{
+		printf("Palindrome");
+	}
+	return 0;
+}
